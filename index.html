@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MobMaker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="title-screen" class="screen active">
+    <div class="title-content">
+      <h1 class="game-title">MOB<br>MAKER</h1>
+      <p class="subtitle">Create two mobs. Allocate stats. Watch them fight!</p>
+      <button id="start-btn" class="btn btn-primary">START</button>
+    </div>
+  </div>
+
+  <div id="design-screen" class="screen">
+    <div class="design-header">
+      <h2>Design Mob <span id="mob-number">1</span></h2>
+      <div id="points-display">Points: <span id="points-remaining">16</span> remaining</div>
+    </div>
+    <div class="design-layout">
+      <div class="mob-selector">
+        <h3>Choose Type</h3>
+        <div id="mob-grid" class="mob-grid"></div>
+      </div>
+      <div class="design-right">
+        <div class="preview-section">
+          <canvas id="preview-canvas" width="160" height="160"></canvas>
+          <div id="mob-name-display" class="mob-name">Select a mob</div>
+        </div>
+        <div class="stat-section">
+          <div id="stat-controls"></div>
+        </div>
+        <button id="confirm-btn" class="btn btn-primary" disabled>CONFIRM</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="fight-screen" class="screen">
+    <div class="arena-header">
+      <div class="mob-info mob1-info">
+        <span id="mob1-name" class="fighter-name"></span>
+        <div class="health-bar-container">
+          <div id="mob1-health-bar" class="health-bar"></div>
+        </div>
+        <span id="mob1-hp-text" class="hp-text"></span>
+      </div>
+      <div id="round-display" class="round-display">VS</div>
+      <div class="mob-info mob2-info">
+        <span id="mob2-name" class="fighter-name"></span>
+        <div class="health-bar-container">
+          <div id="mob2-health-bar" class="health-bar"></div>
+        </div>
+        <span id="mob2-hp-text" class="hp-text"></span>
+      </div>
+    </div>
+    <div class="arena-wrapper">
+      <canvas id="arena-canvas" width="800" height="400"></canvas>
+    </div>
+    <div class="fight-controls">
+      <button id="fight-btn" class="btn btn-primary">FIGHT!</button>
+      <button id="play-again-btn" class="btn btn-primary" style="display:none">PLAY AGAIN</button>
+    </div>
+    <div id="combat-log" class="combat-log"></div>
+  </div>
+
+  <button id="mute-btn" onclick="toggleMute()">🔊</button>
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
